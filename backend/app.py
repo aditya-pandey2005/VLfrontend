@@ -10,15 +10,11 @@ CORS(app)  # Allow frontend (React) to access backend
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
-# -----------------------------
-# GLOBAL VARIABLE (LIVE INPUT)
-# -----------------------------
 current_students = 0
 
 
-# -----------------------------
-# FACE DETECTION → UPDATE STUDENTS
-# -----------------------------
+# FACE DETECTION
+
 @app.route("/update_students", methods=["POST"])
 def update_students():
     global current_students
@@ -35,15 +31,13 @@ def update_students():
     })
 
 
-# -----------------------------
 # HVAC SIMULATION ENDPOINT
-# -----------------------------
+
 @app.route("/simulate", methods=["POST"])
 def simulate():
     global current_students, latest_hvac_status
     data = request.json
 
-    # Safety fallback
     if current_students == 0:
         students = int(data.get("students", 0))
     else:
@@ -58,7 +52,6 @@ def simulate():
 
     latest_hvac_status = result["hvac_status_log"][-1]
 
-    # Attach live student info
     result["students_detected"] = students
 
     return jsonify(result)
@@ -77,7 +70,7 @@ def detect_faces():
         return jsonify({"error": "image field missing"}), 400
     
     try:
-        # Decode base64 image
+        # Decode image
         image_data = base64.b64decode(data["image"].split(',')[1])
         nparr = np.frombuffer(image_data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
@@ -86,7 +79,7 @@ def detect_faces():
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
         
         face_count = len(faces)
-        current_students = face_count  # Update global count
+        current_students = face_count  
         
         return jsonify({"faces": face_count})
     except Exception as e:
