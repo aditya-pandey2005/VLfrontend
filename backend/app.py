@@ -6,7 +6,7 @@ import base64
 import numpy as np
 
 app = Flask(__name__)
-CORS(app, origins=["https://v-lfrontend-r42tnlv6a-nils-projects-2eb4b7a0.vercel.app/", "http://localhost:3000"])  # Allow frontend (React) to access backend
+CORS(app, origins=["https://v-lfrontend-r42tnlv6a-nils-projects-2eb4b7a0.vercel.app", "http://localhost:3000"])  # Allow frontend (React) to access backend
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
