@@ -18,7 +18,7 @@ const CameraCard = ({
       whileInView="animate"
       viewport={{ once: true }}
     >
-      {/* Card Header */}
+      
       <div className="flex items-center justify-between mb-5">
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
           Face Detection
@@ -53,7 +53,7 @@ const CameraCard = ({
                 videoConstraints={{ width: 400, height: 300, facingMode: "user" }}
                 className="w-full rounded-xl"
               />
-              {/* Overlay with scan line */}
+              
               <div className="absolute inset-0 border-2 border-sky-500 rounded-xl pointer-events-none">
                 <div className="absolute left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-sky-500 to-transparent animate-scan" />
               </div>

@@ -4,7 +4,6 @@ import { animations } from "../utils";
 import StarBackground from "./StarBackground";
 
 const ResultsSection = ({ result, darkMode, chartOptions }) => {
-  // Empty State
   if (!result) {
     return (
       <motion.div
@@ -57,7 +56,7 @@ const ResultsSection = ({ result, darkMode, chartOptions }) => {
     );
   }
 
-  // Metrics for the results
+  // results
   const metrics = [
     { value: result.students_detected, label: "Students Detected", color: "border-blue-500" },
     { value: `${result.final_temperature}°C`, label: "Final Temperature", color: "border-orange-500" },
@@ -74,7 +73,7 @@ const ResultsSection = ({ result, darkMode, chartOptions }) => {
       transition={{ duration: 0.4 }}
       className="space-y-6"
     >
-      {/* Metrics Grid */}
+      {/* Grid */}
       <motion.div
         className="grid grid-cols-2 md:grid-cols-4 gap-4"
         variants={animations.staggerContainer}
@@ -98,7 +97,7 @@ const ResultsSection = ({ result, darkMode, chartOptions }) => {
         ))}
       </motion.div>
 
-      {/* Energy Analytics Card */}
+      {/* Analytics Card */}
       <motion.div
         className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 md:p-6 shadow-lg"
         variants={animations.fadeInRight}

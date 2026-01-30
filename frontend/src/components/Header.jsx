@@ -8,7 +8,7 @@ const Header = ({ darkMode, setDarkMode }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      {/* Logo Section */}
+      {/* Logo */}
       <div className="flex items-center gap-3">
         <motion.div
           className="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center text-sky-500"
@@ -31,7 +31,7 @@ const Header = ({ darkMode, setDarkMode }) => {
         </div>
       </div>
 
-      {/* Actions Section */}
+      {/* Actions */}
       <div className="flex items-center gap-3 md:gap-4">
         {/* Live Indicator */}
         <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-100 dark:bg-emerald-900/30 rounded-full">

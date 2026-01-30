@@ -13,7 +13,6 @@ import {
   Tooltip,
 } from "chart.js";
 
-// Import Components
 import {
   LoadingScreen,
   Header,
@@ -23,14 +22,11 @@ import {
   Footer,
 } from "./components";
 
-// Import Utils
 import { API_URL } from "./utils";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Filler, Legend, Tooltip);
 
-// ============================================
-// Main App Component
-// ============================================
+
 function App() {
   const [form, setForm] = useState({ initial_temp: 0, outside_temp: 0, students: 0, simulation_time: 0 });
   const [result, setResult] = useState(null);
@@ -59,7 +55,7 @@ function App() {
     fetchInitialCount();
   }, []);
 
-  // Apply theme to body
+  // theme
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -69,7 +65,7 @@ function App() {
     localStorage.setItem('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
-  // Load saved theme preference
+  // saved theme preference
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     setDarkMode(savedTheme !== 'light');
@@ -250,7 +246,7 @@ function App() {
             <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
             <main className="flex-1 container mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Controls Section */}
+              
               <section className="lg:col-span-1 space-y-6">
                 <CameraCard
                   showWebcam={showWebcam}
@@ -269,7 +265,7 @@ function App() {
                 />
               </section>
 
-              {/* Results Section */}
+              
               <section className="lg:col-span-2">
                 <AnimatePresence mode="wait">
                   <ResultsSection result={result} darkMode={darkMode} chartOptions={chartOptions} />

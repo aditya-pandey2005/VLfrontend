@@ -1,7 +1,6 @@
 // API Configuration
 export const API_URL = import.meta.env.API_URL || "https://thermosense.onrender.com";
 
-// Form Labels
 export const formLabels = {
   initial_temp: "Initial Temperature",
   outside_temp: "Outside Temperature",
@@ -9,7 +8,6 @@ export const formLabels = {
   simulation_time: "Simulation Duration",
 };
 
-// Form Units
 export const formUnits = {
   initial_temp: "°C",
   outside_temp: "°C",
@@ -17,7 +15,6 @@ export const formUnits = {
   simulation_time: "min",
 };
 
-// Metric Colors Map
 export const metricColors = {
   blue: "border-l-sky-500",
   orange: "border-l-orange-500",

@@ -1,4 +1,3 @@
-// Components Barrel Export
 export { default as LoadingScreen } from "./LoadingScreen";
 export { default as StarBackground } from "./StarBackground";
 export { default as Header } from "./Header";
