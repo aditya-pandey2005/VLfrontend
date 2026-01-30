@@ -1,5 +1,5 @@
 // API Configuration
-export const API_URL = import.meta.env.process.env.API_URL || "https://thermosense.onrender.com";
+export const API_URL = import.meta.env.API_URL || "https://thermosense.onrender.com";
 
 // Form Labels
 export const formLabels = {
